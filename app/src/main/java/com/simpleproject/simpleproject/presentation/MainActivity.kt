@@ -1,19 +1,25 @@
-package com.example.simpleproject.presentation
+package com.simpleproject.simpleproject.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.simpleproject.data.repository.UserRepositoryImpl
-import com.example.simpleproject.databinding.ActivityMainBinding
+import com.simpleproject.data.repository.UserRepositoryImpl
+import com.simpleproject.data.storage.SharedPrefsUserStorage
+import com.simpleproject.simpleproject.databinding.ActivityMainBinding
 import com.example.simpleproject.domain.models.SaveUserNameParameters
 import com.example.simpleproject.domain.models.UserName
-import com.example.simpleproject.domain.repository.UserRepository
 import com.example.simpleproject.domain.usecase.GetUserNameUseCase
 import com.example.simpleproject.domain.usecase.SaveUserNameUseCase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    private val userRepository by lazy { UserRepositoryImpl(applicationContext) }
+    private val userRepository by lazy {
+        UserRepositoryImpl(
+            SharedPrefsUserStorage(
+                applicationContext
+            )
+        )
+    }
     private val getUserNameUseCase by lazy { GetUserNameUseCase(userRepository) }
     private val saveUserNameUseCase by lazy { SaveUserNameUseCase(userRepository) }
 //by lazy - создадим эти классы только в тот момент,когда они нам понадобятся

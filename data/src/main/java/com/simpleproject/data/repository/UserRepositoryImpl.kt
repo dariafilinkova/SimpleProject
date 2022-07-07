@@ -1,10 +1,11 @@
-package com.example.simpleproject.data.repository
+package com.simpleproject.data.repository
 
-import com.example.simpleproject.data.storage.User
-import com.example.simpleproject.data.storage.UserStorage
 import com.example.simpleproject.domain.models.SaveUserNameParameters
 import com.example.simpleproject.domain.models.UserName
 import com.example.simpleproject.domain.repository.UserRepository
+import com.simpleproject.data.storage.User
+import com.simpleproject.data.storage.UserStorage
+
 
 
 class UserRepositoryImpl(private val userStorage: UserStorage) : UserRepository {

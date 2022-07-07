@@ -1,4 +1,4 @@
-package com.example.simpleproject.data.storage
+package com.simpleproject.data.storage
 
 interface UserStorage {
     fun save(user: User): Boolean
