@@ -8,3 +8,7 @@ ___
 - data,presentation and domain layers (2st change)
 
 ![](screenshots/usecase_2.png)
+___
+- added storage package in data layer
+
+![](screenshots/usecase_3.png)
